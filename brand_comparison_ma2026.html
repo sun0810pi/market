@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>So sánh thương hiệu MA2026</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #eef2f7;
+      --surface: #ffffff;
+      --surface-strong: #f8fbff;
+      --surface-muted: #eef2f7;
+      --border: #d8e0ea;
+      --text: #1f2937;
+      --text-muted: #5b6775;
+      --text-secondary: #3f4b5c;
+      --accent: #2563eb;
+      --success: #16a34a;
+      --warning: #f59e0b;
+      --info: #0ea5e9;
+      --shadow: 0 18px 50px rgba(18, 37, 82, 0.09);
+      --radius: 20px;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(180deg, #f4f7fb 0%, #eef2f7 100%);
+      color: var(--text);
+    }
+
+    .page-wrap {
+      width: min(1120px, calc(100% - 28px));
+      margin: 0 auto;
+      padding: 2rem 0 3rem;
+    }
+
+    .page-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: flex-end;
+      margin-bottom: 1.75rem;
+    }
+
+    .page-title {
+      margin: 0;
+      font-size: clamp(1.75rem, 2.4vw, 2.5rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: #0f172a;
+    }
+
+    .page-subtitle {
+      max-width: 640px;
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      line-height: 1.7;
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      font-size: .78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      color: #475569;
+      margin: 2rem 0 .9rem;
+    }
+
+    .section-label::before {
+      content: '';
+      width: 42px;
+      height: 3px;
+      background: linear-gradient(90deg, #2563eb 0%, #0ea5e9 100%);
+      border-radius: 999px;
+    }
+
+    .grid2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .card,
+    .rec-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.35rem 1.35rem;
+      box-shadow: var(--shadow);
+    }
+
+    .card {
+      transition: transform .22s ease, box-shadow .22s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 26px 72px rgba(18, 37, 82, 0.14);
+    }
+
+    .brand-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 1rem;
+    }
+
+    .brand-name {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: .25rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      font-size: .8rem;
+      font-weight: 600;
+      padding: 6px 11px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+    }
+
+    .badge-fmcg {
+      background: #ffedd5;
+      color: #c2410c;
+      border-color: #fed7aa;
+    }
+
+    .badge-fintech {
+      background: #dbeafe;
+      color: #075985;
+      border-color: #bfdbfe;
+    }
+
+    .dim-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: .75rem 0;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .dim-row:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .dim-label {
+      font-size: .95rem;
+      color: var(--text-secondary);
+      flex: 1 1 0;
+    }
+
+    .stars {
+      font-size: 1rem;
+      letter-spacing: .04em;
+      color: #f59e0b;
+      white-space: nowrap;
+    }
+
+    .verdict {
+      margin-top: 1.15rem;
+      background: var(--surface-strong);
+      border-left: 4px solid #0ea5e9;
+      padding: 1rem 1rem 1rem 1rem;
+      border-radius: 16px;
+      color: var(--text-muted);
+      font-size: .95rem;
+      line-height: 1.75;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      font-size: .78rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #d1fae5;
+      color: #065f46;
+      margin-bottom: .75rem;
+    }
+
+    .tag-warn {
+      background: #fef3c7;
+      color: #b45309;
+    }
+
+    .rec-title {
+      margin: 0 0 .9rem;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1.4;
+    }
+
+    .route {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: .85rem;
+    }
+
+    .route-box {
+      background: #f8fafc;
+      border-radius: 16px;
+      padding: 1rem;
+      color: var(--text-secondary);
+      font-size: .96rem;
+      line-height: 1.8;
+      border: 1px solid #e2e8f0;
+    }
+
+    .route-label {
+      margin-bottom: .45rem;
+      display: block;
+      font-size: .85rem;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .rec-card + .rec-card {
+      margin-top: 1rem;
+    }
+
+    .rec-card.recommended {
+      border-color: #34d399;
+    }
+
+    @media (max-width: 840px) {
+      .grid2,
+      .route {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .page-wrap {
+        width: calc(100% - 20px);
+        padding: 1.4rem 0 2rem;
+      }
+
+      .page-header {
+        align-items: flex-start;
+      }
+
+      .card,
+      .rec-card {
+        padding: 1.15rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+    <header class="page-header">
+      <div>
+        <h1 class="page-title">So sánh thương hiệu MA2026</h1>
+        <p class="page-subtitle">Tổng quan nhanh về Handy Hảo Hảo và ZaloPay theo tiêu chí chấm điểm MA2026, kèm phân tích rủi ro và đề xuất hướng đi cho team.</p>
+      </div>
+    </header>
+
+    <div class="section-label">So sánh theo tiêu chí chấm điểm MA2026</div>
+    <div class="grid2">
+      <div class="card">
+        <div class="brand-head">
+          <div>
+            <div class="brand-name">Handy Hảo Hảo</div>
+            <span class="badge badge-fmcg">FMCG · mì gói</span>
+          </div>
+        </div>
+        <div class="dim-row">
+          <span class="dim-label">Nghiên cứu thị trường (30đ)</span>
+          <span class="stars">⭐⭐⭐⭐</span>
+        </div>
+        <div class="dim-row">
+          <span class="dim-label">Insight người dùng (25đ)</span>
+          <span class="stars">⭐⭐⭐⭐⭐</span>
+        </div>
+        <div class="dim-row">
+          <span class="dim-label">Chiến lược & Big Idea (40đ)</span>
+          <span class="stars">⭐⭐⭐</span>
+        </div>
+        <div class="dim-row">
+          <span class="dim-label">Slide presentation (5đ)</span>
+          <span class="stars">⭐⭐⭐⭐⭐</span>
+        </div>
+        <div class="verdict">Category rất đông (Hảo Hảo, Omachi, Kokomi). Insight dễ tìm vì gần đời sống sinh viên, nhưng Big Idea khó tạo đột phá - hầu hết team sẽ đều đi hướng "Gen Z, TikTok, giá rẻ". Rủi ro bị hòa đám đông cao.</div>
+      </div>
+
+      <div class="card">
+        <div class="brand-head">
+          <div>
+            <div class="brand-name">ZaloPay</div>
+            <span class="badge badge-fintech">Fintech · payment</span>
+          </div>
+        </div>
+        <div class="dim-row">
+          <span class="dim-label">Nghiên cứu thị trường (30đ)</span>
+          <span class="stars">⭐⭐⭐⭐⭐</span>
+        </div>
+        <div class="dim-row">
+          <span class="dim-label">Insight người dùng (25đ)</span>
+          <span class="stars">⭐⭐⭐</span>
+        </div>
+        <div class="dim-row">
+          <span class="dim-label">Chiến lược & Big Idea (40đ)</span>
+          <span class="stars">⭐⭐⭐⭐⭐</span>
+        </div>
+        <div class="dim-row">
+          <span class="dim-label">Slide presentation (5đ)</span>
+          <span class="stars">⭐⭐⭐⭐</span>
+        </div>
+        <div class="verdict">Data thị trường phong phú (MoMo vs ZaloPay vs VNPay). Insight khó hơn vì cần đào sâu vào hành vi tài chính - nhưng nếu tìm được một tension thật sự, Big Idea sẽ nổi bật. Ít team dám chọn → ít bị trùng hướng.</div>
+      </div>
+    </div>
+
+    <div class="section-label">Rủi ro cần biết</div>
+    <div class="grid2">
+      <div class="card" style="font-size:13px; line-height:1.7; color:var(--text-muted)">
+        <span class="tag tag-warn">Hảo Hảo</span>
+        <div style="margin-top:8px">• Cạnh tranh nội bộ cao - nhiều team cùng đề<br>• Khó differentiate Big Idea<br>• Brand positioning đã khá rõ, ít room sáng tạo<br>• Dễ bị "generic": TikTok + campus activation</div>
+      </div>
+      <div class="card" style="font-size:13px; line-height:1.7; color:var(--text-muted)">
+        <span class="tag">ZaloPay</span>
+        <div style="margin-top:8px">• Insight fintech phức tạp hơn để đào<br>• Cần hiểu rõ trust barrier & habit formation<br>• Nếu insight sai → cả chiến lược sai theo<br>• Đòi hỏi nghiên cứu kỹ hơn Hảo Hảo</div>
+      </div>
+    </div>
+
+    <div class="section-label">Gợi ý hướng đi</div>
+    <div class="rec-card">
+      <div class="rec-title">Nếu team thiên về creative + storytelling → Handy Hảo Hảo</div>
+      <div class="route">
+        <div class="route-box">
+          <div class="route-label">Insight nên khai thác</div>
+          Gen Z muốn ăn ngon nhưng sợ "bị phán xét" khi ăn mì gói một mình - Handy là permission để tự thưởng cho bản thân mà không cần lý do lớn.
+        </div>
+        <div class="route-box">
+          <div class="route-label">Big Idea direction</div>
+          Không phải "mì rẻ" - mà là "khoảnh khắc của riêng mình". Chuyển từ category mì gói sang emotional territory về me-time & self-treat.
+        </div>
+      </div>
+    </div>
+
+    <div class="rec-card recommended">
+      <div class="rec-title" style="color:var(--success)">Nếu team thiên về strategy + data → ZaloPay ★ Recommended</div>
+      <div class="route">
+        <div class="route-box">
+          <div class="route-label">Insight nên khai thác</div>
+          Sinh viên dùng MoMo vì "mọi người xung quanh dùng" - ZaloPay có Zalo nhưng chưa tạo được network effect trong nhóm bạn bè. Đây là khoảng trống.
+        </div>
+        <div class="route-box">
+          <div class="route-label">Big Idea direction</div>
+          Không cạnh tranh trên ví điện tử - cạnh tranh trên "chia tiền nhóm bạn". ZaloPay = lớp xã hội của tài chính, tích hợp tự nhiên vào Zalo group.
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
